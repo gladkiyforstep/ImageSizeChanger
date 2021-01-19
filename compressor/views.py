@@ -17,3 +17,19 @@ def image_upload_view(request):
     else:
         form = SimpleAddImageForm()
         return render(request, 'index.html', {'form': form})
+
+
+def home(request):
+    images = Image.objects.all()
+    all_images = []
+    for img in images:
+        img_info = {
+            'title': img.title,
+            'photo': img.photo.url
+        }
+        all_images.append(img_info)
+    context = {'all_images': all_images}
+
+    return render(request, 'home.html', context)
+
+
