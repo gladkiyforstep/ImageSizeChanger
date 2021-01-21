@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Changing</title>
+</head>
+<body>
+
+{% if img_obj %}
+  <h3> {{img_obj.title}}</h3>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+    {% for field in form %}
+        <div >
+            {{field.label_tag}}
+            <div >{{field}}</div>
+        </div>
+    {% endfor %}
+    <br>
+    <button type="submit">Отправить</button>
+</form>
+<br>
+  <img src="{{ img_obj.photo.url}}" alt="connect" style="max-height:300px">
+
+{% endif %}
+</body>
+</html>
