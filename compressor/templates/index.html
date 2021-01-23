@@ -5,10 +5,22 @@
     <title>Form</title>
 </head>
 <body>
+<h1><strong>Новое изображение</strong></h1>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
-   {{ form.as_p }}
-  <button type="submit">Upload</button>
+   {% for field in form %}
+        <div >
+            {{field.label_tag}}
+            <div >{{field}}
+                
+            </div>
+
+
+        </div>
+    {% endfor %}
+    <br>
+
+  <button type="submit">Отправить</button>
 </form>
 
 {% if img_obj %}

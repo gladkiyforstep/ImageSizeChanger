@@ -1,5 +1,7 @@
 import os
 
+import requests
+from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -15,8 +17,13 @@ def image_upload_view(request):
         if form.is_valid():
             if 'photo' in request.FILES:
                 form.photo = request.FILES['photo']
-            form.save(commit=True)
-            img_obj = form.instance
+                form.save(commit=True)
+                img_obj = form.instance
+            else:
+                link = request.POST['link']
+                img_obj = Image(link=link)
+                img_obj.get_remote_image()
+
             return redirect('/changing_page/'+str(img_obj.pk))
     else:
         form = SimpleAddImageForm()
@@ -78,3 +85,4 @@ def change(request, pk):
 
 
 
+# проработать контекст

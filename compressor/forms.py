@@ -1,11 +1,17 @@
 from django import forms
 from compressor.models import Image, ChangedImage
+from django.forms import FileInput
 
 
 class SimpleAddImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ('title', 'photo')
+        fields = ('link', 'photo')
+        labels = {
+            'link': "Ссылка",
+            'photo': "Файл"
+        }
+
 
 
 class ChangeImageForm(forms.ModelForm):

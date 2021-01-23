@@ -6,6 +6,7 @@ from django.core.files.base import ContentFile
 
 def size_changer(file, height=0, length=0):
     img = Image.open(file)
+    img_format = file.name[file.name.rfind('.')+1:]
     resized_img = img
     if height != 0 and length != 0:
         resized_img = img.resize((length, height), Image.ANTIALIAS)
@@ -21,6 +22,6 @@ def size_changer(file, height=0, length=0):
         resized_img = img.resize((length, height), Image.ANTIALIAS)
 
     buffer = BytesIO()
-    resized_img.save(fp=buffer, format='JPEG')
+    resized_img.save(fp=buffer, format=img_format)
     buff_val = buffer.getvalue()
     return ContentFile(buff_val)
