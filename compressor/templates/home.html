@@ -6,10 +6,11 @@
 </head>
 <body>
 {% csrf_token %}
-<h2>Список изображений</h2>
+<h2><strong>Список изображений</strong></h2>
 {% for image in all_images %}
 <a href="{{image.photo}}"> {{image.title}}</a> <br>
 {% endfor %}
+<p><a href="{{upload_url}}"> Добавить изображение</a> </p>
 
 </body>
 </html>

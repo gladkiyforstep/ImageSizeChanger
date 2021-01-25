@@ -5,6 +5,7 @@
     <title>Form</title>
 </head>
 <body>
+<p><a href="{{home_url}}"> Назад к списку</a> </p>
 <h1><strong>Новое изображение</strong></h1>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
@@ -12,13 +13,11 @@
         <div >
             {{field.label_tag}}
             <div >{{field}}
-                
             </div>
-
-
         </div>
     {% endfor %}
     <br>
+
 
   <button type="submit">Отправить</button>
 </form>
@@ -27,6 +26,9 @@
   <h3>Succesfully uploaded : {{img_obj.title}}</h3>
   <img src="{{ img_obj.photo.url}}" alt="connect" style="max-height:300px">
 
+{% endif %}
+{% if error %}
+<p>{{error}}</p>
 {% endif %}
 </body>
 </html>

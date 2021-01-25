@@ -5,9 +5,9 @@
     <title>Changing</title>
 </head>
 <body>
-
+<p><a href="{{home_url}}"> Назад к списку</a> </p>
 {% if img_obj %}
-  <h3> {{img_obj.photo.name}}</h3>
+  <h3> {{name}}</h3>
 
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
@@ -21,9 +21,13 @@
     <br>
     <button type="submit">Отправить</button>
 </form>
+{% if error %}
+<p>{{error}}</p>
+{% endif %}
 <br>
   <img src="{{ img_obj.photo.url}}" alt="connect" style="max-height:300px">
 
 {% endif %}
+
 </body>
 </html>

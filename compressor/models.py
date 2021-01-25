@@ -6,7 +6,7 @@ from django.db import models
 
 
 class Image(models.Model):
-    link = models.CharField(max_length=300, blank=True)
+    link = models.URLField(blank=True)
     photo = models.ImageField(upload_to='imgs', blank=True)
 
     def get_remote_image(self):

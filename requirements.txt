@@ -1,3 +1,4 @@
 Django
 pillow
 requests
+imageio 
