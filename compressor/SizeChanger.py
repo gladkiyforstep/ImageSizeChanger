@@ -6,10 +6,7 @@ from django.core.files.base import ContentFile
 
 def size_changer(file, height=0, length=0):
     img = Image.open(file)
-    img_format = file.name[file.name.rfind('.')+1:]
     img = img.convert('RGB')
-    if img_format == 'jpg':
-        img_format = 'jpeg'
     resized_img = img
     if height != 0 and length != 0:
         resized_img = img.resize((length, height), Image.ANTIALIAS)

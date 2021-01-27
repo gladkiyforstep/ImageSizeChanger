@@ -3,7 +3,7 @@ WSGI config for image_changer project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
-For more information on this file, see
+For more information on this is_file, see
 https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 """
 
