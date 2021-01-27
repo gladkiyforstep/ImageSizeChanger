@@ -1,8 +1,5 @@
 from urllib.error import URLError
-
-from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from django.shortcuts import render, redirect, get_object_or_404
 from compressor.models import Image, ChangedImage
 from compressor.forms import SimpleAddImageForm, ChangeImageForm
 from compressor.SizeChanger import size_changer
@@ -34,7 +31,7 @@ class ImageUploadHelper:
             return 'link'
 
     def object_creator(self):
-        img_obj = get_object_or_404(Image, pk=1)
+        img_obj = Image.objects.filter(pk=1)
         link = self.request.POST['link']
         error = self.form_validator()
         if error != '':

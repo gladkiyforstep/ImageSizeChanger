@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from compressor.models import Image, ChangedImage
 from compressor.forms import SimpleAddImageForm, ChangeImageForm
+from compressor.ViewsHelper import ImageUploadHelper, ChangingPageHelper
 
-from compressor.ViewsHelper import ImageUploadHelper
-
-from compressor.ViewsHelper import ChangingPageHelper
 
 
 def image_upload_view(request):

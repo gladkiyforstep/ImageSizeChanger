@@ -6,8 +6,8 @@
 </head>
 <body>
 {% csrf_token %}
-{% if all_images %}
 <h2><strong>Список изображений</strong></h2>
+{% if all_images %}
 {% for image in all_images %}
 <a href="{{image.photo}}"> {{image.title}}</a> <br>
 {% endfor %}
