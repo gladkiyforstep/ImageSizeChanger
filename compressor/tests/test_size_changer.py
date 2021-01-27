@@ -7,15 +7,7 @@ from compressor.SizeChanger import size_changer
 
 
 class SizeChangerTest(TestCase):
-    # changed_image = size_changer(self.original_image_obj.photo, self.height, self.length)
-    # changed_image_file = InMemoryUploadedFile(
-    #     changed_image,
-    #     None,
-    #     'resized.jpg',
-    #     'image/jpeg',
-    #     changed_image.tell,
-    #     None
-    # )
+
     def test_not_image_file(self):
         error = False
         file = 'compressor/tests/google.txt'
