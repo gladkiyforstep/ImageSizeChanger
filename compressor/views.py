@@ -54,28 +54,7 @@ def changing_page_view(request, pk):
         changed_image_obj = created_obj['obj']
         changed_image_name = ChangingPageHelper.image_name_taker(changed_image_obj)
 
-        # if form.is_valid():
-        #     try:
-        #         changed_image = size_changer(original_image_obj.photo, height, length)
-        #         changed_image_file = InMemoryUploadedFile(
-        #             changed_image,
-        #             None,
-        #             'resized.jpg',
-        #             'image/jpeg',
-        #             changed_image.tell,
-        #             None
-        #         )
-        #         changed_image_obj = ChangedImage(
-        #             height=height,
-        #             length=length,
-        #             photo=changed_image_file,
-        #             not_changed_img=original_image_obj
-        #         )
-        #         changed_image_obj.save()
-        #         changed_image_name = changed_image_obj.photo.name
-        #         changed_image_name = changed_image_name[changed_image_name.rfind('/') + 1:]
-        #     except ValueError:
-        #         error = 'Высота и Ширина должны быть целыми числами больше нуля.'
+        
         if error != '':
             return render(request, 'changing.html',
                           {
